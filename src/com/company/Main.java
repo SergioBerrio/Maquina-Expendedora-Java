@@ -2,19 +2,21 @@ package com.company;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
+    static Scanner in = new Scanner(System.in);
+
     public static String[][] nombresGolosinas = {
-        {"KitKat", "Chicles de fresa", "Lacasitos", "Palotes"},
+        {"Kit Kat", "Chicles de fresa", "Lacasitos", "Palotes"},
 
         {"Kinder Bueno", "Bolsa variada Haribo", "Cheetos", "Twix"},
 
         {"Pringles", "M&M'S", "Papa Delta", "Chicles de menta"},
 
         {"Monster", "Crunch", "Milkybar", "Fritos"}
-
     };
 
     public static double[][] precioGolosinas = {
@@ -63,33 +65,43 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
 
-        System.out.println("Tecla 1: Comprar chucherias de la máquina.");
-        System.out.println("Tecla 2: Ver las chucherias disponibles en la máquina.");
-        System.out.println("Tecla 3: Rellenar la cantidad de las chucherias de la máquina.");
-        System.out.println("Tecla 4: Apagar la máquina.\n");
+        boolean apagar = false;
 
-        Scanner in = new Scanner(System.in);
-        int eleccion = in.nextInt();
+        while (!apagar) {
+            System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
 
-        switch (eleccion) {
-            case 1:
-                if (cantidad_Kit_Kat == 1 || cantidad_Chicles_Fresa == 1 || cantidad_Lacasitos == 1 || cantidad_Palotes == 1 || cantidad_Kinder_Bueno == 1 || cantidad_Bolsa_Variada_Haribo == 1 || cantidad_Cheetos == 1 || cantidad_Twix == 1 || cantidad_Pringles == 1 || cantidad_M_MS == 1 || cantidad_Papa_Delta == 1 || cantidad_Chicles_Menta == 1 || cantidad_Monster == 1 || cantidad_Crunch == 1 || cantidad_Milkybar == 1 || cantidad_Fritos == 1) {
-                    System.out.println("Las cantidades están bajo mínimos, hay que rellenar existencias!!");
-                } else {
-                    comprarChucherias();
+            System.out.println("Tecla 1: Comprar chucherias de la máquina.");
+            System.out.println("Tecla 2: Ver las chucherias disponibles en la máquina.");
+            System.out.println("Tecla 3: Rellenar la cantidad de las chucherias de la máquina.");
+            System.out.println("Tecla 4: Apagar la máquina.\n");
+
+            int eleccion = in.nextInt();
+
+            try {
+                switch (eleccion) {
+                    case 1:
+                        if (cantidad_Kit_Kat == 1 || cantidad_Chicles_Fresa == 1 || cantidad_Lacasitos == 1 || cantidad_Palotes == 1 || cantidad_Kinder_Bueno == 1 || cantidad_Bolsa_Variada_Haribo == 1 || cantidad_Cheetos == 1 || cantidad_Twix == 1 || cantidad_Pringles == 1 || cantidad_M_MS == 1 || cantidad_Papa_Delta == 1 || cantidad_Chicles_Menta == 1 || cantidad_Monster == 1 || cantidad_Crunch == 1 || cantidad_Milkybar == 1 || cantidad_Fritos == 1) {
+                            System.out.println("Las cantidades están bajo mínimos, hay que rellenar existencias!!");
+                        } else {
+                            comprarChucherias();
+                        }
+                        break;
+                    case 2:
+                        verChucherias();
+                        break;
+                    case 3:
+                        rellenarMaquina();
+                        break;
+                    case 4:
+                        apagarMaquina();
+                        apagar = true;
+                        break;
                 }
-                break;
-            case 2:
-                verChucherias();
-                break;
-            case 3:
-                rellenarMaquina();
-                break;
-            case 4:
-                apagarMaquina();
-                break;
+            } catch (InputMismatchException exception) {
+                System.out.println("Tienes que escribir un número!!");
+                in.nextInt();
+            }
         }
     }
 
@@ -115,13 +127,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[0][0]) {
+                if (dineroCompra == precioGolosinas[0][0]) {
+
+                    cantidad_Kit_Kat -= 1;
+                    cantidadComprada_Kit_Kat += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][0]);
+
+                } else if (dineroCompra > precioGolosinas[0][0]) {
 
                     double diferenciaPrecioKitKat = dineroCompra - precioGolosinas[0][0];
                     cantidad_Kit_Kat -= 1;
                     cantidadComprada_Kit_Kat += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioKitKat * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][0]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioKitKat * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -129,18 +149,26 @@ public class Main {
             case "01":
 
                 while (dineroCompra < precioGolosinas[0][1]) {
-                    System.out.println("\nTe falta dinero!! Introduce más dinero");
+                    System.out.println("\nTe falta dinero!! Introduce más dinero!!");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra < precioGolosinas[0][1]) {
+                if (dineroCompra == precioGolosinas[0][1]) {
+
+                    cantidad_Chicles_Fresa -= 1;
+                    cantidadComprada_Chicles_Fresa += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
+
+                } else if (dineroCompra < precioGolosinas[0][1]) {
 
                     double diferenciaPrecioChiclesFresa = dineroCompra - precioGolosinas[0][1];
                     cantidad_Chicles_Fresa -= 1;
                     cantidadComprada_Chicles_Fresa += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioChiclesFresa * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioChiclesFresa * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -153,13 +181,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[0][2]) {
+                if (dineroCompra == precioGolosinas[0][2]) {
+
+                    cantidad_Palotes -= 1;
+                    cantidadComprada_Palotes += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][2]);
+
+                } else if (dineroCompra > precioGolosinas[0][2]) {
 
                     double diferenciaPrecioLacasitos = dineroCompra - precioGolosinas[0][2];
                     cantidad_Lacasitos -= 1;
                     cantidadComprada_Lacasitos += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioLacasitos * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][2]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioLacasitos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -172,13 +208,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[0][3]) {
+                if (dineroCompra == precioGolosinas[0][3]) {
+
+                    cantidad_Palotes -= 1;
+                    cantidadComprada_Palotes += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][3]);
+
+                } else if (dineroCompra > precioGolosinas[0][3]) {
 
                     double diferenciaPrecioPalotes = dineroCompra - precioGolosinas[0][3];
                     cantidad_Palotes -= 1;
                     cantidadComprada_Palotes += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioPalotes * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][3]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPalotes * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -191,13 +235,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[1][0]) {
+                if (dineroCompra == precioGolosinas[1][0]) {
+
+                    cantidad_Kinder_Bueno -= 1;
+                    cantidadComprada_Kinder_Bueno += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][0]);
+
+                } else if (dineroCompra > precioGolosinas[1][0]) {
 
                     double diferenciaPrecioKinderBueno = dineroCompra - precioGolosinas[1][0];
                     cantidad_Kinder_Bueno -= 1;
                     cantidadComprada_Kinder_Bueno += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioKinderBueno * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][0]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioKinderBueno * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -210,13 +262,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[1][1]) {
+                if (dineroCompra == precioGolosinas[1][1]) {
+
+                    cantidad_Bolsa_Variada_Haribo -= 1;
+                    cantidadComprada_Bolsa_Variada_Haribo += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][1]);
+
+                } else if (dineroCompra > precioGolosinas[1][1]) {
 
                     double diferenciaPrecioBolsaVariadaHaribo = dineroCompra - precioGolosinas[1][1];
                     cantidad_Bolsa_Variada_Haribo -= 1;
                     cantidadComprada_Bolsa_Variada_Haribo += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioBolsaVariadaHaribo * 100) / 100+ " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][1]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioBolsaVariadaHaribo * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -229,13 +289,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[1][2]) {
+                if (dineroCompra == precioGolosinas[1][2]) {
+
+                    cantidad_Cheetos -= 1;
+                    cantidadComprada_Cheetos += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][2]);
+
+                } else if (dineroCompra > precioGolosinas[1][2]) {
 
                     double diferenciaPrecioCheetos = dineroCompra - precioGolosinas[1][2];
                     cantidad_Cheetos -= 1;
                     cantidadComprada_Cheetos += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioCheetos * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][2]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioCheetos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -248,13 +316,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[1][3]) {
+                if (dineroCompra == precioGolosinas[1][3]) {
+
+                    cantidad_Twix -= 1;
+                    cantidadComprada_Twix += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][3]);
+
+                } else if (dineroCompra > precioGolosinas[1][3]) {
 
                     double diferenciaPrecioTwix = dineroCompra - precioGolosinas[1][3];
                     cantidad_Twix -= 1;
                     cantidadComprada_Twix += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioTwix * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][3]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioTwix * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -267,13 +343,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[2][0]) {
+                if (dineroCompra == precioGolosinas[2][0]) {
+
+                    cantidad_Pringles -= 1;
+                    cantidadComprada_Pringles += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][0]);
+
+                } else if (dineroCompra > precioGolosinas[2][0]) {
 
                     double diferenciaPrecioPringles = dineroCompra - precioGolosinas[2][0];
                     cantidad_Pringles -= 1;
                     cantidadComprada_Pringles += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioPringles * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][0]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPringles * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -286,13 +370,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[2][1]) {
+                if (dineroCompra == precioGolosinas[2][1]) {
+
+                    cantidad_M_MS -= 1;
+                    cantidadComprada_M_MS += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
+
+                } else if (dineroCompra > precioGolosinas[2][1]) {
 
                     double diferenciaPrecioMMS = dineroCompra - precioGolosinas[2][1];
                     cantidad_M_MS -= 1;
                     cantidadComprada_M_MS += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioMMS * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMMS * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -305,13 +397,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[2][2]) {
+                if (dineroCompra == precioGolosinas[2][2]) {
+
+                    cantidad_Papa_Delta -= 1;
+                    cantidadComprada_Papa_Delta += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][2]);
+
+                } else if (dineroCompra > precioGolosinas[2][2]) {
 
                     double diferenciaPrecioPapaDelta = dineroCompra - precioGolosinas[2][2];
                     cantidad_Papa_Delta -= 1;
                     cantidadComprada_Papa_Delta += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioPapaDelta * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][2]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPapaDelta * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -324,13 +424,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[2][3]) {
+                if (dineroCompra == precioGolosinas[2][3]) {
+
+                    cantidad_Chicles_Menta -= 1;
+                    cantidadComprada_Chicles_Menta += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][3]);
+
+                } else if (dineroCompra > precioGolosinas[2][3]) {
 
                     double diferenciaPrecioChiclesMenta = dineroCompra - precioGolosinas[2][3];
                     cantidad_Chicles_Menta -= 1;
                     cantidadComprada_Chicles_Menta += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioChiclesMenta * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][3]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioChiclesMenta * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -343,13 +451,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[3][0]) {
+                if (dineroCompra == precioGolosinas[3][0]) {
+
+                    cantidad_Monster -= 1;
+                    cantidadComprada_Monster += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][0]);
+
+                } else if (dineroCompra > precioGolosinas[3][0]) {
 
                     double diferenciaPrecioMonster = dineroCompra - precioGolosinas[3][0];
                     cantidad_Monster -= 1;
                     cantidadComprada_Monster += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioMonster * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][0]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMonster * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -362,13 +478,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[3][1]) {
+                if (dineroCompra == precioGolosinas[3][1]) {
+
+                    cantidad_Crunch -= 1;
+                    cantidadComprada_Crunch += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][1]);
+
+                } else if (dineroCompra > precioGolosinas[3][1]) {
 
                     double diferenciaPrecioCrunch = dineroCompra - precioGolosinas[3][1];
                     cantidad_Crunch -= 1;
                     cantidadComprada_Crunch += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioCrunch * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][1]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioCrunch * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -381,13 +505,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[3][2]) {
+                if (dineroCompra == precioGolosinas[3][2]) {
+
+                    cantidad_Milkybar -= 1;
+                    cantidadComprada_Milkybar += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][2]);
+
+                } else if (dineroCompra > precioGolosinas[3][2]) {
 
                     double diferenciaPrecioMilkybar = dineroCompra - precioGolosinas[3][2];
                     cantidad_Milkybar -= 1;
                     cantidadComprada_Milkybar += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioMilkybar * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][2]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMilkybar * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -400,13 +532,21 @@ public class Main {
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra > precioGolosinas[3][3]) {
+                if (dineroCompra == precioGolosinas[3][3]) {
+
+                    cantidad_Fritos -= 1;
+                    cantidadComprada_Fritos += 1;
+
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][3]);
+
+                } else if (dineroCompra > precioGolosinas[3][3]) {
 
                     double diferenciaPrecioFritos = dineroCompra - precioGolosinas[3][3];
                     cantidad_Fritos -= 1;
                     cantidadComprada_Fritos += 1;
 
-                    System.out.println("\nDinero de vuelta: " + Math.round(diferenciaPrecioFritos * 100) / 100 + " €");
+                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][3]);
+                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioFritos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -418,7 +558,7 @@ public class Main {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.println("[" + i + j + "] " + nombresGolosinas[i][j] + " " + precioGolosinas[i][j] + "€");
+                System.out.println("[" + i + j + "] || " + nombresGolosinas[i][j] + " || " + precioGolosinas[i][j] + "€");
             }
         }
     }
@@ -428,11 +568,11 @@ public class Main {
         System.out.println("\nHola, introduce la contraseña para rellenar la máquina:");
 
         Scanner in = new Scanner(System.in);
-        String contrasenaRellenarMaquina = in.next();
+        String contrasenaRellenarMaquina= in.next();
 
-        if (contrasenaRellenarMaquina.equals("MaquinaExpendedora2022")){
+        if (contrasenaRellenarMaquina.equals("MaquinaExpendedora2022")) {
 
-            System.out.println("Introduce la posición de la chuchería:");
+            System.out.println("\nIntroduce la posición de la chuchería:");
 
             Scanner inPosicionChucheria = new Scanner(System.in);
             String posicionchucheriaRellenar = inPosicionChucheria.next();
@@ -440,7 +580,7 @@ public class Main {
             switch (posicionchucheriaRellenar) {
                 case "00": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -451,7 +591,7 @@ public class Main {
                 }
                 case "01": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -462,7 +602,7 @@ public class Main {
                 }
                 case "02": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -473,7 +613,7 @@ public class Main {
                 }
                 case "03": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -484,7 +624,7 @@ public class Main {
                 }
                 case "10": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -495,7 +635,7 @@ public class Main {
                 }
                 case "11": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -506,7 +646,7 @@ public class Main {
                 }
                 case "12": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -517,7 +657,7 @@ public class Main {
                 }
                 case "13": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -528,7 +668,7 @@ public class Main {
                 }
                 case "20": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -539,7 +679,7 @@ public class Main {
                 }
                 case "21": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -550,7 +690,7 @@ public class Main {
                 }
                 case "22": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -561,7 +701,7 @@ public class Main {
                 }
                 case "23": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -572,7 +712,7 @@ public class Main {
                 }
                 case "30": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -583,7 +723,7 @@ public class Main {
                 }
                 case "31": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -594,7 +734,7 @@ public class Main {
                 }
                 case "32": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
@@ -605,12 +745,13 @@ public class Main {
                 }
                 case "33": {
 
-                    System.out.println("Introduce la cantidad a rellenar:");
+                    System.out.println("\nIntroduce la cantidad a rellenar:");
 
                     Scanner inCantidadRellenar = new Scanner(System.in);
                     int cantidadRellenar = inCantidadRellenar.nextInt();
 
                     cantidad_Fritos += cantidadRellenar;
+
                     break;
                 }
             }
@@ -619,11 +760,10 @@ public class Main {
             System.out.println("Contraseña incorrecta!!");
             System.out.println("Apagando máquina...");
         }
-
     }
 
     public static void apagarMaquina(){
-        System.out.println("\nComienza el recuento de beneficios diario...");
+        System.out.println("\nComienza el recuento de ganancias obtenidas...");
 
         System.out.println("Quieres comprobrar las ganancias por producto o las ganacias totales??");
 
