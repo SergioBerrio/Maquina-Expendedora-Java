@@ -66,9 +66,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        boolean apagar = false;
+        boolean apagarMaquina = false;
 
-        while (!apagar) {
+        while (!apagarMaquina) {
             System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
 
             System.out.println("Tecla 1: Comprar chucherias de la máquina.");
@@ -95,11 +95,11 @@ public class Main {
                         break;
                     case 4:
                         apagarMaquina();
-                        apagar = true;
+                        apagarMaquina = true;
                         break;
                 }
             } catch (InputMismatchException exception) {
-                System.out.println("Tienes que escribir un número!!");
+                System.out.println("Carácter incorrecto, debes introducir un número!!");
                 in.nextInt();
             }
         }
@@ -113,7 +113,7 @@ public class Main {
         double dineroCompra = in.nextDouble();
 
         System.out.println("\nCrédito: " + dineroCompra + "€");
-        System.out.println("Introduce el código del producto que desees comprar, ej. 00 o 11:\n");
+        System.out.println("Introduce el código del producto que desees comprar, ej. '00' o '11':");
 
         Scanner in2 = new Scanner(System.in);
         String eleccioncompra = in2.next();
@@ -577,180 +577,825 @@ public class Main {
             Scanner inPosicionChucheria = new Scanner(System.in);
             String posicionchucheriaRellenar = inPosicionChucheria.next();
 
+            System.out.println("\nIntroduce la cantidad para rellenar:");
+
+            Scanner inCantidadRellenar = new Scanner(System.in);
+            int cantidadRellenar = inCantidadRellenar.nextInt();
+
             switch (posicionchucheriaRellenar) {
                 case "00": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Kit_Kat == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Kit_Kat += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kit_Kat == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kit_Kat == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kit_Kat == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "01": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Chicles_Fresa == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Chicles_Fresa += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Fresa == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Fresa == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Fresa == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "02": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Lacasitos == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Lacasitos += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Lacasitos == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Lacasitos == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Lacasitos == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "03": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Palotes == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Palotes += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Palotes == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Palotes == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Palotes == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "10": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Kinder_Bueno == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Kinder_Bueno += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kinder_Bueno == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kinder_Bueno == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Kinder_Bueno == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "11": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Bolsa_Variada_Haribo == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Bolsa_Variada_Haribo == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Bolsa_Variada_Haribo == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Bolsa_Variada_Haribo == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "12": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Cheetos == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Cheetos += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Cheetos == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Cheetos == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Cheetos == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "13": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Twix == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Twix += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Twix == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Twix == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Twix == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "20": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Pringles == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Pringles += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Pringles == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Pringles == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Pringles == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "21": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_M_MS == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_M_MS += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_M_MS == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_M_MS == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_M_MS == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "22": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Papa_Delta == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Papa_Delta += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Papa_Delta == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Papa_Delta == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Papa_Delta == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "23": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Chicles_Menta == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Chicles_Menta += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Menta == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Menta == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Chicles_Menta == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "30": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Monster == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Monster += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Monster == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Monster == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Monster == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "31": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Crunch == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        while (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
 
-                    cantidad_Crunch += cantidadRellenar;
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 4) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Crunch == 2) {
+
+                        while (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 3) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Crunch == 3) {
+
+                        while (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 2) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Crunch == 4) {
+
+                        while (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+
+                            cantidadRellenar = inCantidadRellenar.nextInt();
+                        }
+
+                        if (cantidadRellenar == 1) {
+                            cantidad_Kit_Kat += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "32": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Milkybar == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        if (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Milkybar += cantidadRellenar;
+                        }
 
-                    cantidad_Milkybar += cantidadRellenar;
+                    } else if (cantidad_Milkybar == 2) {
+
+                        if (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Milkybar += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Milkybar == 3) {
+
+                        if (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Milkybar += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Milkybar == 4) {
+
+                        if (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Milkybar += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
                 case "33": {
 
-                    System.out.println("\nIntroduce la cantidad a rellenar:");
+                    if (cantidad_Fritos == 1){
 
-                    Scanner inCantidadRellenar = new Scanner(System.in);
-                    int cantidadRellenar = inCantidadRellenar.nextInt();
+                        if (cantidadRellenar > 4) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Fritos += cantidadRellenar;
+                        }
 
-                    cantidad_Fritos += cantidadRellenar;
+                    } else if (cantidad_Fritos == 2) {
+
+                        if (cantidadRellenar > 3) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Fritos += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Fritos == 3) {
+
+                        if (cantidadRellenar > 2) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Fritos += cantidadRellenar;
+                        }
+
+                    } else if (cantidad_Fritos == 4) {
+
+                        if (cantidadRellenar > 1) {
+                            System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
+                        } else {
+                            cantidad_Fritos += cantidadRellenar;
+                        }
+                    }
 
                     break;
                 }
@@ -765,7 +1410,7 @@ public class Main {
     public static void apagarMaquina(){
         System.out.println("\nComienza el recuento de ganancias obtenidas...");
 
-        System.out.println("Quieres comprobrar las ganancias por producto o las ganacias totales??");
+        System.out.println("\nQuieres comprobrar las ganancias por producto o las ganacias totales??");
 
         Scanner in = new Scanner(System.in);
         String eleccionGanancias = in.next();
