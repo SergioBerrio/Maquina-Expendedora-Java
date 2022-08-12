@@ -141,7 +141,7 @@ public class Main {
                     cantidadComprada_Kit_Kat += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][0]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioKitKat * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioKitKat * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -161,14 +161,14 @@ public class Main {
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
 
-                } else if (dineroCompra < precioGolosinas[0][1]) {
+                } else if (dineroCompra > precioGolosinas[0][1]) {
 
                     double diferenciaPrecioChiclesFresa = dineroCompra - precioGolosinas[0][1];
                     cantidad_Chicles_Fresa -= 1;
                     cantidadComprada_Chicles_Fresa += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioChiclesFresa * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioChiclesFresa * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -195,7 +195,7 @@ public class Main {
                     cantidadComprada_Lacasitos += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][2]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioLacasitos * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioLacasitos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -222,7 +222,7 @@ public class Main {
                     cantidadComprada_Palotes += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][3]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPalotes * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPalotes * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -249,7 +249,7 @@ public class Main {
                     cantidadComprada_Kinder_Bueno += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][0]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioKinderBueno * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioKinderBueno * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -276,7 +276,7 @@ public class Main {
                     cantidadComprada_Bolsa_Variada_Haribo += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][1]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioBolsaVariadaHaribo * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioBolsaVariadaHaribo * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -303,7 +303,7 @@ public class Main {
                     cantidadComprada_Cheetos += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][2]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioCheetos * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioCheetos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -330,7 +330,7 @@ public class Main {
                     cantidadComprada_Twix += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][3]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioTwix * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioTwix * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -357,7 +357,7 @@ public class Main {
                     cantidadComprada_Pringles += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][0]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPringles * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPringles * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -384,7 +384,7 @@ public class Main {
                     cantidadComprada_M_MS += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMMS * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMMS * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -411,7 +411,7 @@ public class Main {
                     cantidadComprada_Papa_Delta += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][2]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioPapaDelta * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPapaDelta * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -438,7 +438,7 @@ public class Main {
                     cantidadComprada_Chicles_Menta += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][3]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioChiclesMenta * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioChiclesMenta * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -465,7 +465,7 @@ public class Main {
                     cantidadComprada_Monster += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][0]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMonster * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMonster * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -492,7 +492,7 @@ public class Main {
                     cantidadComprada_Crunch += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][1]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioCrunch * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioCrunch * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -519,7 +519,7 @@ public class Main {
                     cantidadComprada_Milkybar += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][2]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioMilkybar * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMilkybar * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -546,7 +546,7 @@ public class Main {
                     cantidadComprada_Fritos += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][3]);
-                    System.out.println("Dinero de vuelta: " + Math.round(diferenciaPrecioFritos * 100) / 100 + "€\n");
+                    System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioFritos * 100) / 100 + "€\n");
                 }
 
                 break;
@@ -1410,36 +1410,36 @@ public class Main {
     public static void apagarMaquina(){
         System.out.println("\nComienza el recuento de ganancias obtenidas...");
 
-        System.out.println("\nQuieres comprobrar las ganancias por producto o las ganacias totales??");
+        System.out.println("\nQuieres comprobar las ganancias por producto (0) o las ganacias totales (1)??");
 
         Scanner in = new Scanner(System.in);
-        String eleccionGanancias = in.next();
+        int eleccionGanancias = in.nextInt();
 
         System.out.println("\n***Ganancias obtenidas el " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "***");
 
-        if (eleccionGanancias.equals("Ganancias por producto") || eleccionGanancias.equals(("ganancias por producto"))){
+        if (eleccionGanancias == 0){
 
-            System.out.println("Producto [00]: " + nombresGolosinas[0][0] + " -> " + (precioGolosinas[0][0] * cantidadComprada_Kit_Kat));
-            System.out.println("Producto [01]: " + nombresGolosinas[0][1] + " -> " + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa));
-            System.out.println("Producto [02]: " + nombresGolosinas[0][2] + " -> " + (precioGolosinas[0][2] * cantidadComprada_Lacasitos));
-            System.out.println("Producto [03]: " + nombresGolosinas[0][3] + " -> " + (precioGolosinas[0][3] * cantidadComprada_Palotes));
-            System.out.println("Producto [10]: " + nombresGolosinas[1][0] + " -> " + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno));
-            System.out.println("Producto [11]: " + nombresGolosinas[1][1] + " -> " + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo));
-            System.out.println("Producto [12]: " + nombresGolosinas[1][2] + " -> " + (precioGolosinas[1][2] * cantidadComprada_Cheetos));
-            System.out.println("Producto [13]: " + nombresGolosinas[1][3] + " -> " + (precioGolosinas[1][3] * cantidadComprada_Twix));
-            System.out.println("Producto [20]: " + nombresGolosinas[2][0] + " -> " + (precioGolosinas[2][0] * cantidadComprada_Pringles));
-            System.out.println("Producto [21]: " + nombresGolosinas[2][1] + " -> " + (precioGolosinas[2][1] * cantidad_M_MS));
-            System.out.println("Producto [22]: " + nombresGolosinas[2][2] + " -> " + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta));
-            System.out.println("Producto [23]: " + nombresGolosinas[2][3] + " -> " + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta));
-            System.out.println("Producto [30]: " + nombresGolosinas[3][0] + " -> " + (precioGolosinas[3][0] * cantidadComprada_Monster));
-            System.out.println("Producto [31]: " + nombresGolosinas[3][1] + " -> " + (precioGolosinas[3][1] * cantidadComprada_Crunch));
-            System.out.println("Producto [32]: " + nombresGolosinas[3][2] + " -> " + (precioGolosinas[3][2] * cantidadComprada_Milkybar));
-            System.out.println("Producto [33]: " + nombresGolosinas[3][3] + " -> " + (precioGolosinas[3][3] * cantidadComprada_Fritos));
+            System.out.println("Producto [00]: " + nombresGolosinas[0][0] + " -> " + (precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + "€");
+            System.out.println("Producto [01]: " + nombresGolosinas[0][1] + " -> " + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + "€");
+            System.out.println("Producto [02]: " + nombresGolosinas[0][2] + " -> " + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + "€");
+            System.out.println("Producto [03]: " + nombresGolosinas[0][3] + " -> " + (precioGolosinas[0][3] * cantidadComprada_Palotes) + "€");
+            System.out.println("Producto [10]: " + nombresGolosinas[1][0] + " -> " + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + "€");
+            System.out.println("Producto [11]: " + nombresGolosinas[1][1] + " -> " + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + "€");
+            System.out.println("Producto [12]: " + nombresGolosinas[1][2] + " -> " + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + "€");
+            System.out.println("Producto [13]: " + nombresGolosinas[1][3] + " -> " + (precioGolosinas[1][3] * cantidadComprada_Twix) + "€");
+            System.out.println("Producto [20]: " + nombresGolosinas[2][0] + " -> " + (precioGolosinas[2][0] * cantidadComprada_Pringles) + "€");
+            System.out.println("Producto [21]: " + nombresGolosinas[2][1] + " -> " + (precioGolosinas[2][1] * cantidad_M_MS) + "€");
+            System.out.println("Producto [22]: " + nombresGolosinas[2][2] + " -> " + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + "€");
+            System.out.println("Producto [23]: " + nombresGolosinas[2][3] + " -> " + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + "€");
+            System.out.println("Producto [30]: " + nombresGolosinas[3][0] + " -> " + (precioGolosinas[3][0] * cantidadComprada_Monster) + "€");
+            System.out.println("Producto [31]: " + nombresGolosinas[3][1] + " -> " + (precioGolosinas[3][1] * cantidadComprada_Crunch) + "€");
+            System.out.println("Producto [32]: " + nombresGolosinas[3][2] + " -> " + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + "€");
+            System.out.println("Producto [33]: " + nombresGolosinas[3][3] + " -> " + (precioGolosinas[3][3] * cantidadComprada_Fritos) + "€");
 
-        } else if (eleccionGanancias.equals("Ganancias totales") || eleccionGanancias.equals(("ganancias totales"))){
+        } else if (eleccionGanancias == 1){
 
             System.out.println("**Ganancias totales**");
-            System.out.println((precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + (precioGolosinas[0][3] * cantidadComprada_Palotes) + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + (precioGolosinas[1][3] * cantidadComprada_Twix) + (precioGolosinas[2][0] * cantidadComprada_Pringles) + (precioGolosinas[2][1] * cantidadComprada_M_MS) + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + (precioGolosinas[3][0] * cantidadComprada_Monster) + (precioGolosinas[3][1] * cantidadComprada_Crunch) + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + (precioGolosinas[3][3] * cantidadComprada_Fritos));
+            System.out.println((double) Math.round(((precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + (precioGolosinas[0][3] * cantidadComprada_Palotes) + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + (precioGolosinas[1][3] * cantidadComprada_Twix) + (precioGolosinas[2][0] * cantidadComprada_Pringles) + (precioGolosinas[2][1] * cantidadComprada_M_MS) + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + (precioGolosinas[3][0] * cantidadComprada_Monster) + (precioGolosinas[3][1] * cantidadComprada_Crunch) + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + (precioGolosinas[3][3] * cantidadComprada_Fritos))  * 100) / 100 + "€");
         }
 
         System.out.println("\n***Máquina apagada***");
