@@ -38,7 +38,7 @@ public class Main {
     public static double cantidad_Cheetos = 5;
     public static double cantidad_Twix = 5;
     public static double cantidad_Pringles = 5;
-    public static double cantidad_M_MS = 5;
+    public static double cantidad_MMs = 5;
     public static double cantidad_Papa_Delta = 5;
     public static double cantidad_Chicles_Menta = 5;
     public static double cantidad_Monster = 5;
@@ -55,7 +55,7 @@ public class Main {
     public static int cantidadComprada_Cheetos;
     public static int cantidadComprada_Twix;
     public static int cantidadComprada_Pringles;
-    public static int cantidadComprada_M_MS;
+    public static int cantidadComprada_MMs;
     public static int cantidadComprada_Papa_Delta;
     public static int cantidadComprada_Chicles_Menta;
     public static int cantidadComprada_Monster;
@@ -81,7 +81,7 @@ public class Main {
             try {
                 switch (eleccion) {
                     case 1:
-                        if (cantidad_Kit_Kat == 1 || cantidad_Chicles_Fresa == 1 || cantidad_Lacasitos == 1 || cantidad_Palotes == 1 || cantidad_Kinder_Bueno == 1 || cantidad_Bolsa_Variada_Haribo == 1 || cantidad_Cheetos == 1 || cantidad_Twix == 1 || cantidad_Pringles == 1 || cantidad_M_MS == 1 || cantidad_Papa_Delta == 1 || cantidad_Chicles_Menta == 1 || cantidad_Monster == 1 || cantidad_Crunch == 1 || cantidad_Milkybar == 1 || cantidad_Fritos == 1) {
+                        if (cantidad_Kit_Kat == 1 || cantidad_Chicles_Fresa == 1 || cantidad_Lacasitos == 1 || cantidad_Palotes == 1 || cantidad_Kinder_Bueno == 1 || cantidad_Bolsa_Variada_Haribo == 1 || cantidad_Cheetos == 1 || cantidad_Twix == 1 || cantidad_Pringles == 1 || cantidad_MMs == 1 || cantidad_Papa_Delta == 1 || cantidad_Chicles_Menta == 1 || cantidad_Monster == 1 || cantidad_Crunch == 1 || cantidad_Milkybar == 1 || cantidad_Fritos == 1) {
                             System.out.println("Las cantidades están bajo mínimos, hay que rellenar existencias!!");
                         } else {
                             comprarChucherias();
@@ -372,16 +372,16 @@ public class Main {
 
                 if (dineroCompra == precioGolosinas[2][1]) {
 
-                    cantidad_M_MS -= 1;
-                    cantidadComprada_M_MS += 1;
+                    cantidad_MMs -= 1;
+                    cantidadComprada_MMs += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
 
                 } else if (dineroCompra > precioGolosinas[2][1]) {
 
                     double diferenciaPrecioMMS = dineroCompra - precioGolosinas[2][1];
-                    cantidad_M_MS -= 1;
-                    cantidadComprada_M_MS += 1;
+                    diferenciaPrecioMMS -= 1;
+                    cantidadComprada_MMs += 1;
 
                     System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMMS * 100) / 100 + "€\n");
@@ -632,6 +632,9 @@ public class Main {
                         if (cantidadRellenar == 1) {
                             cantidad_Kit_Kat += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Kit_Kat == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -647,7 +650,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Fresa == 2) {
@@ -659,7 +662,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Fresa == 3) {
@@ -671,7 +674,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Fresa == 4) {
@@ -683,8 +686,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Fresa += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Chicles_Fresa == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -700,7 +706,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Lacasitos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Lacasitos == 2) {
@@ -712,7 +718,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Lacasitos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Lacasitos == 3) {
@@ -724,7 +730,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Lacasitos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Lacasitos == 4) {
@@ -736,8 +742,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Lacasitos += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Lacasitos == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -753,7 +762,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Palotes += cantidadRellenar;
                         }
 
                     } else if (cantidad_Palotes == 2) {
@@ -765,7 +774,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Palotes += cantidadRellenar;
                         }
 
                     } else if (cantidad_Palotes == 3) {
@@ -777,7 +786,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Palotes += cantidadRellenar;
                         }
 
                     } else if (cantidad_Palotes == 4) {
@@ -789,8 +798,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Palotes += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Palotes == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -806,7 +818,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
                     } else if (cantidad_Kinder_Bueno == 2) {
@@ -818,7 +830,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
                     } else if (cantidad_Kinder_Bueno == 3) {
@@ -830,7 +842,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
                     } else if (cantidad_Kinder_Bueno == 4) {
@@ -842,8 +854,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Kinder_Bueno += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Kinder_Bueno == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -859,7 +874,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
                     } else if (cantidad_Bolsa_Variada_Haribo == 2) {
@@ -871,7 +886,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
                     } else if (cantidad_Bolsa_Variada_Haribo == 3) {
@@ -883,7 +898,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
                     } else if (cantidad_Bolsa_Variada_Haribo == 4) {
@@ -895,8 +910,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Bolsa_Variada_Haribo == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -912,7 +930,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Cheetos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Cheetos == 2) {
@@ -924,7 +942,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Cheetos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Cheetos == 3) {
@@ -936,7 +954,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Cheetos += cantidadRellenar;
                         }
 
                     } else if (cantidad_Cheetos == 4) {
@@ -948,8 +966,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Cheetos += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Cheetos == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -965,7 +986,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Twix += cantidadRellenar;
                         }
 
                     } else if (cantidad_Twix == 2) {
@@ -977,7 +998,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Twix += cantidadRellenar;
                         }
 
                     } else if (cantidad_Twix == 3) {
@@ -989,7 +1010,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Twix += cantidadRellenar;
                         }
 
                     } else if (cantidad_Twix == 4) {
@@ -1001,8 +1022,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Twix += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Twix == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1018,7 +1042,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Pringles += cantidadRellenar;
                         }
 
                     } else if (cantidad_Pringles == 2) {
@@ -1030,7 +1054,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Pringles += cantidadRellenar;
                         }
 
                     } else if (cantidad_Pringles == 3) {
@@ -1042,7 +1066,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Pringles += cantidadRellenar;
                         }
 
                     } else if (cantidad_Pringles == 4) {
@@ -1054,15 +1078,18 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Pringles += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Pringles == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
                 }
                 case "21": {
 
-                    if (cantidad_M_MS == 1){
+                    if (cantidad_MMs == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1071,10 +1098,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_M_MS == 2) {
+                    } else if (cantidad_MMs == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1083,10 +1110,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_M_MS == 3) {
+                    } else if (cantidad_MMs == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1095,10 +1122,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_M_MS == 4) {
+                    } else if (cantidad_MMs == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1107,8 +1134,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_MMs += cantidadRellenar;
                         }
+
+                    } else if (cantidad_MMs == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1124,7 +1154,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Papa_Delta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Papa_Delta == 2) {
@@ -1136,7 +1166,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Papa_Delta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Papa_Delta == 3) {
@@ -1148,7 +1178,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Papa_Delta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Papa_Delta == 4) {
@@ -1160,8 +1190,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Papa_Delta += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Papa_Delta == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1177,7 +1210,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Menta == 2) {
@@ -1189,7 +1222,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Menta == 3) {
@@ -1201,7 +1234,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
                     } else if (cantidad_Chicles_Menta == 4) {
@@ -1213,8 +1246,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Chicles_Menta += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Chicles_Menta == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1230,7 +1266,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Monster += cantidadRellenar;
                         }
 
                     } else if (cantidad_Monster == 2) {
@@ -1242,7 +1278,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Monster += cantidadRellenar;
                         }
 
                     } else if (cantidad_Monster == 3) {
@@ -1254,7 +1290,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Monster += cantidadRellenar;
                         }
 
                     } else if (cantidad_Monster == 4) {
@@ -1266,8 +1302,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Monster += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Monster == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1283,7 +1322,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Crunch += cantidadRellenar;
                         }
 
                     } else if (cantidad_Crunch == 2) {
@@ -1295,7 +1334,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Crunch += cantidadRellenar;
                         }
 
                     } else if (cantidad_Crunch == 3) {
@@ -1307,7 +1346,7 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Crunch += cantidadRellenar;
                         }
 
                     } else if (cantidad_Crunch == 4) {
@@ -1319,8 +1358,11 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            cantidad_Crunch += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Crunch == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1358,6 +1400,9 @@ public class Main {
                         } else {
                             cantidad_Milkybar += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Milkybar == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1395,6 +1440,9 @@ public class Main {
                         } else {
                             cantidad_Fritos += cantidadRellenar;
                         }
+
+                    } else if (cantidad_Fritos == 5)  {
+                        System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
                     break;
@@ -1428,7 +1476,7 @@ public class Main {
             System.out.println("Producto [12]: " + nombresGolosinas[1][2] + " -> " + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + "€");
             System.out.println("Producto [13]: " + nombresGolosinas[1][3] + " -> " + (precioGolosinas[1][3] * cantidadComprada_Twix) + "€");
             System.out.println("Producto [20]: " + nombresGolosinas[2][0] + " -> " + (precioGolosinas[2][0] * cantidadComprada_Pringles) + "€");
-            System.out.println("Producto [21]: " + nombresGolosinas[2][1] + " -> " + (precioGolosinas[2][1] * cantidad_M_MS) + "€");
+            System.out.println("Producto [21]: " + nombresGolosinas[2][1] + " -> " + (precioGolosinas[2][1] * cantidad_MMs) + "€");
             System.out.println("Producto [22]: " + nombresGolosinas[2][2] + " -> " + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + "€");
             System.out.println("Producto [23]: " + nombresGolosinas[2][3] + " -> " + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + "€");
             System.out.println("Producto [30]: " + nombresGolosinas[3][0] + " -> " + (precioGolosinas[3][0] * cantidadComprada_Monster) + "€");
@@ -1439,7 +1487,7 @@ public class Main {
         } else if (eleccionGanancias == 1){
 
             System.out.println("**Ganancias totales**");
-            System.out.println((double) Math.round(((precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + (precioGolosinas[0][3] * cantidadComprada_Palotes) + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + (precioGolosinas[1][3] * cantidadComprada_Twix) + (precioGolosinas[2][0] * cantidadComprada_Pringles) + (precioGolosinas[2][1] * cantidadComprada_M_MS) + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + (precioGolosinas[3][0] * cantidadComprada_Monster) + (precioGolosinas[3][1] * cantidadComprada_Crunch) + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + (precioGolosinas[3][3] * cantidadComprada_Fritos))  * 100) / 100 + "€");
+            System.out.println((double) Math.round(((precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + (precioGolosinas[0][3] * cantidadComprada_Palotes) + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + (precioGolosinas[1][3] * cantidadComprada_Twix) + (precioGolosinas[2][0] * cantidadComprada_Pringles) + (precioGolosinas[2][1] * cantidadComprada_MMs) + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + (precioGolosinas[3][0] * cantidadComprada_Monster) + (precioGolosinas[3][1] * cantidadComprada_Crunch) + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + (precioGolosinas[3][3] * cantidadComprada_Fritos))  * 100) / 100 + "€");
         }
 
         System.out.println("\n***Máquina apagada***");
