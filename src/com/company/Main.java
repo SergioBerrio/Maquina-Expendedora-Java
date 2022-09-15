@@ -9,79 +9,19 @@ public class Main {
 
     static Scanner in = new Scanner(System.in);
 
-    public static String[][] nombresGolosinas = {
-        {"Kit Kat", "Chicles de fresa", "Lacasitos", "Palotes"},
-
-        {"Kinder Bueno", "Bolsa variada Haribo", "Cheetos", "Twix"},
-
-        {"Pringles", "M&M'S", "Papa Delta", "Chicles de menta"},
-
-        {"Monster", "Crunch", "Milkybar", "Fritos"}
-    };
-
-    public static double[][] precioGolosinas = {
-        {1.1, 0.8, 1.5, 0.9},
-
-        {1.8, 1, 1.2, 1},
-
-        {1.5, 1.3, 1.2, 0.8},
-
-        {1.2, 1.1, 1.1, 0.75}
-    };
-
-    public static double cantidad_Kit_Kat = 5;
-    public static double cantidad_Chicles_Fresa = 5;
-    public static double cantidad_Lacasitos = 5;
-    public static double cantidad_Palotes = 5;
-    public static double cantidad_Kinder_Bueno = 5;
-    public static double cantidad_Bolsa_Variada_Haribo = 5;
-    public static double cantidad_Cheetos = 5;
-    public static double cantidad_Twix = 5;
-    public static double cantidad_Pringles = 5;
-    public static double cantidad_MMs = 5;
-    public static double cantidad_Papa_Delta = 5;
-    public static double cantidad_Chicles_Menta = 5;
-    public static double cantidad_Monster = 5;
-    public static double cantidad_Crunch = 5;
-    public static double cantidad_Milkybar = 5;
-    public static double cantidad_Fritos = 5;
-
-    public static int cantidadComprada_Kit_Kat;
-    public static int cantidadComprada_Chicles_Fresa;
-    public static int cantidadComprada_Lacasitos;
-    public static int cantidadComprada_Palotes;
-    public static int cantidadComprada_Kinder_Bueno;
-    public static int cantidadComprada_Bolsa_Variada_Haribo;
-    public static int cantidadComprada_Cheetos;
-    public static int cantidadComprada_Twix;
-    public static int cantidadComprada_Pringles;
-    public static int cantidadComprada_MMs;
-    public static int cantidadComprada_Papa_Delta;
-    public static int cantidadComprada_Chicles_Menta;
-    public static int cantidadComprada_Monster;
-    public static int cantidadComprada_Crunch;
-    public static int cantidadComprada_Milkybar;
-    public static int cantidadComprada_Fritos;
-
-
     public static void main(String[] args) {
 
         boolean apagarMaquina = false;
 
         while (!apagarMaquina) {
-            System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
-
-            System.out.println("Tecla 1: Comprar chucherias de la máquina.");
-            System.out.println("Tecla 2: Ver las chucherias disponibles en la máquina.");
-            System.out.println("Tecla 3: Rellenar la cantidad de las chucherias de la máquina.");
-            System.out.println("Tecla 4: Apagar la máquina.\n");
+            mostrarMenu();
 
             int eleccion = in.nextInt();
 
             try {
                 switch (eleccion) {
                     case 1:
-                        if (cantidad_Kit_Kat == 1 || cantidad_Chicles_Fresa == 1 || cantidad_Lacasitos == 1 || cantidad_Palotes == 1 || cantidad_Kinder_Bueno == 1 || cantidad_Bolsa_Variada_Haribo == 1 || cantidad_Cheetos == 1 || cantidad_Twix == 1 || cantidad_Pringles == 1 || cantidad_MMs == 1 || cantidad_Papa_Delta == 1 || cantidad_Chicles_Menta == 1 || cantidad_Monster == 1 || cantidad_Crunch == 1 || cantidad_Milkybar == 1 || cantidad_Fritos == 1) {
+                        if (Constantes.cantidad_Kit_Kat == 1 || Constantes.cantidad_Chicles_Fresa == 1 || Constantes.cantidad_Lacasitos == 1 || Constantes.cantidad_Palotes == 1 || Constantes.cantidad_Kinder_Bueno == 1 || Constantes.cantidad_Bolsa_Variada_Haribo == 1 || Constantes.cantidad_Cheetos == 1 || Constantes.cantidad_Twix == 1 || Constantes.cantidad_Pringles == 1 || Constantes.cantidad_MMs == 1 || Constantes.cantidad_Papa_Delta == 1 || Constantes.cantidad_Chicles_Menta == 1 || Constantes.cantidad_Monster == 1 || Constantes.cantidad_Crunch == 1 || Constantes.cantidad_Milkybar == 1 || Constantes.cantidad_Fritos == 1) {
                             System.out.println("Las cantidades están bajo mínimos, hay que rellenar existencias!!");
                         } else {
                             comprarChucherias();
@@ -106,6 +46,16 @@ public class Main {
     }
 
 
+    public static void mostrarMenu(){
+        System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
+
+        System.out.println("Tecla 1: Comprar chucherias de la máquina.");
+        System.out.println("Tecla 2: Ver las chucherias disponibles en la máquina.");
+        System.out.println("Tecla 3: Rellenar la cantidad de las chucherias de la máquina.");
+        System.out.println("Tecla 4: Apagar la máquina.\n");
+    }
+
+
     public static void comprarChucherias(){
         System.out.println("\nIntroduce el dinero en la máquina:");
 
@@ -121,26 +71,26 @@ public class Main {
         switch (eleccioncompra){
             case "00":
 
-                while (dineroCompra < precioGolosinas[0][0]) {
+                while (dineroCompra < Constantes.precioGolosinas[0][0]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[0][0]) {
+                if (dineroCompra == Constantes.precioGolosinas[0][0]) {
 
-                    cantidad_Kit_Kat -= 1;
-                    cantidadComprada_Kit_Kat += 1;
+                    Constantes.cantidad_Kit_Kat -= 1;
+                    Constantes.cantidadComprada_Kit_Kat += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][0]);
 
-                } else if (dineroCompra > precioGolosinas[0][0]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[0][0]) {
 
-                    double diferenciaPrecioKitKat = dineroCompra - precioGolosinas[0][0];
-                    cantidad_Kit_Kat -= 1;
-                    cantidadComprada_Kit_Kat += 1;
+                    double diferenciaPrecioKitKat = dineroCompra - Constantes.precioGolosinas[0][0];
+                    Constantes.cantidad_Kit_Kat -= 1;
+                    Constantes.cantidadComprada_Kit_Kat += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][0]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioKitKat * 100) / 100 + "€\n");
                 }
 
@@ -148,26 +98,26 @@ public class Main {
 
             case "01":
 
-                while (dineroCompra < precioGolosinas[0][1]) {
+                while (dineroCompra < Constantes.precioGolosinas[0][1]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero!!");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[0][1]) {
+                if (dineroCompra == Constantes.precioGolosinas[0][1]) {
 
-                    cantidad_Chicles_Fresa -= 1;
-                    cantidadComprada_Chicles_Fresa += 1;
+                    Constantes.cantidad_Chicles_Fresa -= 1;
+                    Constantes.cantidadComprada_Chicles_Fresa += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][1]);
 
-                } else if (dineroCompra > precioGolosinas[0][1]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[0][1]) {
 
-                    double diferenciaPrecioChiclesFresa = dineroCompra - precioGolosinas[0][1];
-                    cantidad_Chicles_Fresa -= 1;
-                    cantidadComprada_Chicles_Fresa += 1;
+                    double diferenciaPrecioChiclesFresa = dineroCompra - Constantes.precioGolosinas[0][1];
+                    Constantes.cantidad_Chicles_Fresa -= 1;
+                    Constantes.cantidadComprada_Chicles_Fresa += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][1]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioChiclesFresa * 100) / 100 + "€\n");
                 }
 
@@ -175,26 +125,26 @@ public class Main {
 
             case "02":
 
-                while (dineroCompra < precioGolosinas[0][2]) {
+                while (dineroCompra < Constantes.precioGolosinas[0][2]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[0][2]) {
+                if (dineroCompra == Constantes.precioGolosinas[0][2]) {
 
-                    cantidad_Palotes -= 1;
-                    cantidadComprada_Palotes += 1;
+                    Constantes.cantidad_Palotes -= 1;
+                    Constantes.cantidadComprada_Palotes += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][2]);
 
-                } else if (dineroCompra > precioGolosinas[0][2]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[0][2]) {
 
-                    double diferenciaPrecioLacasitos = dineroCompra - precioGolosinas[0][2];
-                    cantidad_Lacasitos -= 1;
-                    cantidadComprada_Lacasitos += 1;
+                    double diferenciaPrecioLacasitos = dineroCompra - Constantes.precioGolosinas[0][2];
+                    Constantes.cantidad_Lacasitos -= 1;
+                    Constantes.cantidadComprada_Lacasitos += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][2]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioLacasitos * 100) / 100 + "€\n");
                 }
 
@@ -202,26 +152,26 @@ public class Main {
 
             case "03":
 
-                while (dineroCompra < precioGolosinas[0][3]) {
+                while (dineroCompra < Constantes.precioGolosinas[0][3]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[0][3]) {
+                if (dineroCompra == Constantes.precioGolosinas[0][3]) {
 
-                    cantidad_Palotes -= 1;
-                    cantidadComprada_Palotes += 1;
+                    Constantes.cantidad_Palotes -= 1;
+                    Constantes.cantidadComprada_Palotes += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][3]);
 
-                } else if (dineroCompra > precioGolosinas[0][3]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[0][3]) {
 
-                    double diferenciaPrecioPalotes = dineroCompra - precioGolosinas[0][3];
-                    cantidad_Palotes -= 1;
-                    cantidadComprada_Palotes += 1;
+                    double diferenciaPrecioPalotes = dineroCompra - Constantes.precioGolosinas[0][3];
+                    Constantes.cantidad_Palotes -= 1;
+                    Constantes.cantidadComprada_Palotes += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[0][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[0][3]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPalotes * 100) / 100 + "€\n");
                 }
 
@@ -229,26 +179,26 @@ public class Main {
 
             case "10":
 
-                while (dineroCompra < precioGolosinas[1][0]) {
+                while (dineroCompra < Constantes.precioGolosinas[1][0]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[1][0]) {
+                if (dineroCompra == Constantes.precioGolosinas[1][0]) {
 
-                    cantidad_Kinder_Bueno -= 1;
-                    cantidadComprada_Kinder_Bueno += 1;
+                    Constantes.cantidad_Kinder_Bueno -= 1;
+                    Constantes.cantidadComprada_Kinder_Bueno += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][0]);
 
-                } else if (dineroCompra > precioGolosinas[1][0]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[1][0]) {
 
-                    double diferenciaPrecioKinderBueno = dineroCompra - precioGolosinas[1][0];
-                    cantidad_Kinder_Bueno -= 1;
-                    cantidadComprada_Kinder_Bueno += 1;
+                    double diferenciaPrecioKinderBueno = dineroCompra - Constantes.precioGolosinas[1][0];
+                    Constantes.cantidad_Kinder_Bueno -= 1;
+                    Constantes.cantidadComprada_Kinder_Bueno += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][0]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioKinderBueno * 100) / 100 + "€\n");
                 }
 
@@ -256,26 +206,26 @@ public class Main {
 
             case "11":
 
-                while (dineroCompra < precioGolosinas[1][1]) {
+                while (dineroCompra < Constantes.precioGolosinas[1][1]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[1][1]) {
+                if (dineroCompra == Constantes.precioGolosinas[1][1]) {
 
-                    cantidad_Bolsa_Variada_Haribo -= 1;
-                    cantidadComprada_Bolsa_Variada_Haribo += 1;
+                    Constantes.cantidad_Bolsa_Variada_Haribo -= 1;
+                    Constantes.cantidadComprada_Bolsa_Variada_Haribo += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][1]);
 
-                } else if (dineroCompra > precioGolosinas[1][1]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[1][1]) {
 
-                    double diferenciaPrecioBolsaVariadaHaribo = dineroCompra - precioGolosinas[1][1];
-                    cantidad_Bolsa_Variada_Haribo -= 1;
-                    cantidadComprada_Bolsa_Variada_Haribo += 1;
+                    double diferenciaPrecioBolsaVariadaHaribo = dineroCompra - Constantes.precioGolosinas[1][1];
+                    Constantes.cantidad_Bolsa_Variada_Haribo -= 1;
+                    Constantes.cantidadComprada_Bolsa_Variada_Haribo += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][1]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioBolsaVariadaHaribo * 100) / 100 + "€\n");
                 }
 
@@ -283,26 +233,26 @@ public class Main {
 
             case "12":
 
-                while (dineroCompra < precioGolosinas[1][2]) {
+                while (dineroCompra < Constantes.precioGolosinas[1][2]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[1][2]) {
+                if (dineroCompra == Constantes.precioGolosinas[1][2]) {
 
-                    cantidad_Cheetos -= 1;
-                    cantidadComprada_Cheetos += 1;
+                    Constantes.cantidad_Cheetos -= 1;
+                    Constantes.cantidadComprada_Cheetos += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][2]);
 
-                } else if (dineroCompra > precioGolosinas[1][2]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[1][2]) {
 
-                    double diferenciaPrecioCheetos = dineroCompra - precioGolosinas[1][2];
-                    cantidad_Cheetos -= 1;
-                    cantidadComprada_Cheetos += 1;
+                    double diferenciaPrecioCheetos = dineroCompra - Constantes.precioGolosinas[1][2];
+                    Constantes.cantidad_Cheetos -= 1;
+                    Constantes.cantidadComprada_Cheetos += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][2]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioCheetos * 100) / 100 + "€\n");
                 }
 
@@ -310,26 +260,26 @@ public class Main {
 
             case "13":
 
-                while (dineroCompra < precioGolosinas[1][3]) {
+                while (dineroCompra < Constantes.precioGolosinas[1][3]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[1][3]) {
+                if (dineroCompra == Constantes.precioGolosinas[1][3]) {
 
-                    cantidad_Twix -= 1;
-                    cantidadComprada_Twix += 1;
+                    Constantes.cantidad_Twix -= 1;
+                    Constantes.cantidadComprada_Twix += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][3]);
 
-                } else if (dineroCompra > precioGolosinas[1][3]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[1][3]) {
 
-                    double diferenciaPrecioTwix = dineroCompra - precioGolosinas[1][3];
-                    cantidad_Twix -= 1;
-                    cantidadComprada_Twix += 1;
+                    double diferenciaPrecioTwix = dineroCompra - Constantes.precioGolosinas[1][3];
+                    Constantes.cantidad_Twix -= 1;
+                    Constantes.cantidadComprada_Twix += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[1][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[1][3]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioTwix * 100) / 100 + "€\n");
                 }
 
@@ -337,26 +287,26 @@ public class Main {
 
             case "20":
 
-                while (dineroCompra < precioGolosinas[2][0]) {
+                while (dineroCompra < Constantes.precioGolosinas[2][0]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[2][0]) {
+                if (dineroCompra == Constantes.precioGolosinas[2][0]) {
 
-                    cantidad_Pringles -= 1;
-                    cantidadComprada_Pringles += 1;
+                    Constantes.cantidad_Pringles -= 1;
+                    Constantes.cantidadComprada_Pringles += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][0]);
 
-                } else if (dineroCompra > precioGolosinas[2][0]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[2][0]) {
 
-                    double diferenciaPrecioPringles = dineroCompra - precioGolosinas[2][0];
-                    cantidad_Pringles -= 1;
-                    cantidadComprada_Pringles += 1;
+                    double diferenciaPrecioPringles = dineroCompra - Constantes.precioGolosinas[2][0];
+                    Constantes.cantidad_Pringles -= 1;
+                    Constantes.cantidadComprada_Pringles += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][0]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPringles * 100) / 100 + "€\n");
                 }
 
@@ -364,26 +314,26 @@ public class Main {
 
             case "21":
 
-                while (dineroCompra < precioGolosinas[2][1]) {
+                while (dineroCompra < Constantes.precioGolosinas[2][1]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[2][1]) {
+                if (dineroCompra == Constantes.precioGolosinas[2][1]) {
 
-                    cantidad_MMs -= 1;
-                    cantidadComprada_MMs += 1;
+                    Constantes.cantidad_MMs -= 1;
+                    Constantes.cantidadComprada_MMs += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][1]);
 
-                } else if (dineroCompra > precioGolosinas[2][1]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[2][1]) {
 
-                    double diferenciaPrecioMMS = dineroCompra - precioGolosinas[2][1];
+                    double diferenciaPrecioMMS = dineroCompra - Constantes.precioGolosinas[2][1];
                     diferenciaPrecioMMS -= 1;
-                    cantidadComprada_MMs += 1;
+                    Constantes.cantidadComprada_MMs += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][1]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMMS * 100) / 100 + "€\n");
                 }
 
@@ -391,26 +341,26 @@ public class Main {
 
             case "22":
 
-                while (dineroCompra < precioGolosinas[2][2]) {
+                while (dineroCompra < Constantes.precioGolosinas[2][2]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[2][2]) {
+                if (dineroCompra == Constantes.precioGolosinas[2][2]) {
 
-                    cantidad_Papa_Delta -= 1;
-                    cantidadComprada_Papa_Delta += 1;
+                    Constantes.cantidad_Papa_Delta -= 1;
+                    Constantes.cantidadComprada_Papa_Delta += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][2]);
 
-                } else if (dineroCompra > precioGolosinas[2][2]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[2][2]) {
 
-                    double diferenciaPrecioPapaDelta = dineroCompra - precioGolosinas[2][2];
-                    cantidad_Papa_Delta -= 1;
-                    cantidadComprada_Papa_Delta += 1;
+                    double diferenciaPrecioPapaDelta = dineroCompra - Constantes.precioGolosinas[2][2];
+                    Constantes.cantidad_Papa_Delta -= 1;
+                    Constantes.cantidadComprada_Papa_Delta += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][2]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioPapaDelta * 100) / 100 + "€\n");
                 }
 
@@ -418,26 +368,26 @@ public class Main {
 
             case "23":
 
-                while (dineroCompra < precioGolosinas[2][3]) {
+                while (dineroCompra < Constantes.precioGolosinas[2][3]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[2][3]) {
+                if (dineroCompra == Constantes.precioGolosinas[2][3]) {
 
-                    cantidad_Chicles_Menta -= 1;
-                    cantidadComprada_Chicles_Menta += 1;
+                    Constantes.cantidad_Chicles_Menta -= 1;
+                    Constantes.cantidadComprada_Chicles_Menta += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][3]);
 
-                } else if (dineroCompra > precioGolosinas[2][3]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[2][3]) {
 
-                    double diferenciaPrecioChiclesMenta = dineroCompra - precioGolosinas[2][3];
-                    cantidad_Chicles_Menta -= 1;
-                    cantidadComprada_Chicles_Menta += 1;
+                    double diferenciaPrecioChiclesMenta = dineroCompra - Constantes.precioGolosinas[2][3];
+                    Constantes.cantidad_Chicles_Menta -= 1;
+                    Constantes.cantidadComprada_Chicles_Menta += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[2][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[2][3]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioChiclesMenta * 100) / 100 + "€\n");
                 }
 
@@ -445,26 +395,26 @@ public class Main {
 
             case "30":
 
-                while (dineroCompra < precioGolosinas[3][0]) {
+                while (dineroCompra < Constantes.precioGolosinas[3][0]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[3][0]) {
+                if (dineroCompra == Constantes.precioGolosinas[3][0]) {
 
-                    cantidad_Monster -= 1;
-                    cantidadComprada_Monster += 1;
+                    Constantes.cantidad_Monster -= 1;
+                    Constantes.cantidadComprada_Monster += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][0]);
 
-                } else if (dineroCompra > precioGolosinas[3][0]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[3][0]) {
 
-                    double diferenciaPrecioMonster = dineroCompra - precioGolosinas[3][0];
-                    cantidad_Monster -= 1;
-                    cantidadComprada_Monster += 1;
+                    double diferenciaPrecioMonster = dineroCompra - Constantes.precioGolosinas[3][0];
+                    Constantes.cantidad_Monster -= 1;
+                    Constantes.cantidadComprada_Monster += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][0]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][0]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMonster * 100) / 100 + "€\n");
                 }
 
@@ -472,26 +422,26 @@ public class Main {
 
             case "31":
 
-                while (dineroCompra < precioGolosinas[3][1]) {
+                while (dineroCompra < Constantes.precioGolosinas[3][1]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[3][1]) {
+                if (dineroCompra == Constantes.precioGolosinas[3][1]) {
 
-                    cantidad_Crunch -= 1;
-                    cantidadComprada_Crunch += 1;
+                    Constantes.cantidad_Crunch -= 1;
+                    Constantes.cantidadComprada_Crunch += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][1]);
 
-                } else if (dineroCompra > precioGolosinas[3][1]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[3][1]) {
 
-                    double diferenciaPrecioCrunch = dineroCompra - precioGolosinas[3][1];
-                    cantidad_Crunch -= 1;
-                    cantidadComprada_Crunch += 1;
+                    double diferenciaPrecioCrunch = dineroCompra - Constantes.precioGolosinas[3][1];
+                    Constantes.cantidad_Crunch -= 1;
+                    Constantes.cantidadComprada_Crunch += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][1]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][1]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioCrunch * 100) / 100 + "€\n");
                 }
 
@@ -499,26 +449,26 @@ public class Main {
 
             case "32":
 
-                while (dineroCompra < precioGolosinas[3][2]) {
+                while (dineroCompra < Constantes.precioGolosinas[3][2]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[3][2]) {
+                if (dineroCompra == Constantes.precioGolosinas[3][2]) {
 
-                    cantidad_Milkybar -= 1;
-                    cantidadComprada_Milkybar += 1;
+                    Constantes.cantidad_Milkybar -= 1;
+                    Constantes.cantidadComprada_Milkybar += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][2]);
 
-                } else if (dineroCompra > precioGolosinas[3][2]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[3][2]) {
 
-                    double diferenciaPrecioMilkybar = dineroCompra - precioGolosinas[3][2];
-                    cantidad_Milkybar -= 1;
-                    cantidadComprada_Milkybar += 1;
+                    double diferenciaPrecioMilkybar = dineroCompra - Constantes.precioGolosinas[3][2];
+                    Constantes.cantidad_Milkybar -= 1;
+                    Constantes.cantidadComprada_Milkybar += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][2]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][2]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioMilkybar * 100) / 100 + "€\n");
                 }
 
@@ -526,26 +476,26 @@ public class Main {
 
             case "33":
 
-                while (dineroCompra < precioGolosinas[3][3]) {
+                while (dineroCompra < Constantes.precioGolosinas[3][3]) {
                     System.out.println("\nTe falta dinero!! Introduce más dinero");
 
                     dineroCompra += in.nextDouble();
                 }
 
-                if (dineroCompra == precioGolosinas[3][3]) {
+                if (dineroCompra == Constantes.precioGolosinas[3][3]) {
 
-                    cantidad_Fritos -= 1;
-                    cantidadComprada_Fritos += 1;
+                    Constantes.cantidad_Fritos -= 1;
+                    Constantes.cantidadComprada_Fritos += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][3]);
 
-                } else if (dineroCompra > precioGolosinas[3][3]) {
+                } else if (dineroCompra > Constantes.precioGolosinas[3][3]) {
 
-                    double diferenciaPrecioFritos = dineroCompra - precioGolosinas[3][3];
-                    cantidad_Fritos -= 1;
-                    cantidadComprada_Fritos += 1;
+                    double diferenciaPrecioFritos = dineroCompra - Constantes.precioGolosinas[3][3];
+                    Constantes.cantidad_Fritos -= 1;
+                    Constantes.cantidadComprada_Fritos += 1;
 
-                    System.out.println("\nAquí tienes tu producto: " + nombresGolosinas[3][3]);
+                    System.out.println("\nAquí tienes tu producto: " + Constantes.nombresGolosinas[3][3]);
                     System.out.println("Dinero de vuelta: " + (double) Math.round(diferenciaPrecioFritos * 100) / 100 + "€\n");
                 }
 
@@ -553,12 +503,13 @@ public class Main {
         }
     }
 
+
     public static void verChucherias(){
         System.out.println("\n***Chucherías disponibles en la máquina***\n");
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.println("[" + i + j + "] || " + nombresGolosinas[i][j] + " || " + precioGolosinas[i][j] + "€");
+                System.out.println("[" + i + j + "] || " + Constantes.nombresGolosinas[i][j] + " || " + Constantes.precioGolosinas[i][j] + "€");
             }
         }
     }
@@ -585,7 +536,7 @@ public class Main {
             switch (posicionchucheriaRellenar) {
                 case "00": {
 
-                    if (cantidad_Kit_Kat == 1){
+                    if (Constantes.cantidad_Kit_Kat == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -594,10 +545,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            Constantes.cantidad_Kit_Kat += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kit_Kat == 2) {
+                    } else if (Constantes.cantidad_Kit_Kat == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -606,10 +557,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            Constantes.cantidad_Kit_Kat += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kit_Kat == 3) {
+                    } else if (Constantes.cantidad_Kit_Kat == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -618,10 +569,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            Constantes.cantidad_Kit_Kat += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kit_Kat == 4) {
+                    } else if (Constantes.cantidad_Kit_Kat == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -630,10 +581,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kit_Kat += cantidadRellenar;
+                            Constantes.cantidad_Kit_Kat += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kit_Kat == 5)  {
+                    } else if (Constantes.cantidad_Kit_Kat == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -641,7 +592,7 @@ public class Main {
                 }
                 case "01": {
 
-                    if (cantidad_Chicles_Fresa == 1){
+                    if (Constantes.cantidad_Chicles_Fresa == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -650,10 +601,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Chicles_Fresa += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Fresa == 2) {
+                    } else if (Constantes.cantidad_Chicles_Fresa == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -662,10 +613,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Chicles_Fresa += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Fresa == 3) {
+                    } else if (Constantes.cantidad_Chicles_Fresa == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -674,10 +625,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Chicles_Fresa += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Fresa == 4) {
+                    } else if (Constantes.cantidad_Chicles_Fresa == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -686,10 +637,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Chicles_Fresa += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Fresa += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Fresa == 5)  {
+                    } else if (Constantes.cantidad_Chicles_Fresa == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -697,7 +648,7 @@ public class Main {
                 }
                 case "02": {
 
-                    if (cantidad_Lacasitos == 1){
+                    if (Constantes.cantidad_Lacasitos == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -706,10 +657,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Lacasitos += cantidadRellenar;
+                            Constantes.cantidad_Lacasitos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Lacasitos == 2) {
+                    } else if (Constantes.cantidad_Lacasitos == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -718,10 +669,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Lacasitos += cantidadRellenar;
+                            Constantes.cantidad_Lacasitos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Lacasitos == 3) {
+                    } else if (Constantes.cantidad_Lacasitos == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -730,10 +681,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Lacasitos += cantidadRellenar;
+                            Constantes.cantidad_Lacasitos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Lacasitos == 4) {
+                    } else if (Constantes.cantidad_Lacasitos == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -742,10 +693,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Lacasitos += cantidadRellenar;
+                            Constantes.cantidad_Lacasitos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Lacasitos == 5)  {
+                    } else if (Constantes.cantidad_Lacasitos == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -753,7 +704,7 @@ public class Main {
                 }
                 case "03": {
 
-                    if (cantidad_Palotes == 1){
+                    if (Constantes.cantidad_Palotes == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -762,10 +713,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Palotes += cantidadRellenar;
+                            Constantes.cantidad_Palotes += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Palotes == 2) {
+                    } else if (Constantes.cantidad_Palotes == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -774,10 +725,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Palotes += cantidadRellenar;
+                            Constantes.cantidad_Palotes += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Palotes == 3) {
+                    } else if (Constantes.cantidad_Palotes == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -786,10 +737,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Palotes += cantidadRellenar;
+                            Constantes.cantidad_Palotes += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Palotes == 4) {
+                    } else if (Constantes.cantidad_Palotes == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -798,10 +749,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Palotes += cantidadRellenar;
+                            Constantes.cantidad_Palotes += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Palotes == 5)  {
+                    } else if (Constantes.cantidad_Palotes == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -809,7 +760,7 @@ public class Main {
                 }
                 case "10": {
 
-                    if (cantidad_Kinder_Bueno == 1){
+                    if (Constantes.cantidad_Kinder_Bueno == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -818,10 +769,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Kinder_Bueno += cantidadRellenar;
+                            Constantes.cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kinder_Bueno == 2) {
+                    } else if (Constantes.cantidad_Kinder_Bueno == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -830,10 +781,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Kinder_Bueno += cantidadRellenar;
+                            Constantes.cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kinder_Bueno == 3) {
+                    } else if (Constantes.cantidad_Kinder_Bueno == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -842,10 +793,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Kinder_Bueno += cantidadRellenar;
+                            Constantes.cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kinder_Bueno == 4) {
+                    } else if (Constantes.cantidad_Kinder_Bueno == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -854,10 +805,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Kinder_Bueno += cantidadRellenar;
+                            Constantes.cantidad_Kinder_Bueno += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Kinder_Bueno == 5)  {
+                    } else if (Constantes.cantidad_Kinder_Bueno == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -865,7 +816,7 @@ public class Main {
                 }
                 case "11": {
 
-                    if (cantidad_Bolsa_Variada_Haribo == 1){
+                    if (Constantes.cantidad_Bolsa_Variada_Haribo == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -874,10 +825,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
+                            Constantes.cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Bolsa_Variada_Haribo == 2) {
+                    } else if (Constantes.cantidad_Bolsa_Variada_Haribo == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -886,10 +837,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
+                            Constantes.cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Bolsa_Variada_Haribo == 3) {
+                    } else if (Constantes.cantidad_Bolsa_Variada_Haribo == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -898,10 +849,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
+                            Constantes.cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Bolsa_Variada_Haribo == 4) {
+                    } else if (Constantes.cantidad_Bolsa_Variada_Haribo == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -910,10 +861,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
+                            Constantes.cantidad_Bolsa_Variada_Haribo += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Bolsa_Variada_Haribo == 5)  {
+                    } else if (Constantes.cantidad_Bolsa_Variada_Haribo == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -921,7 +872,7 @@ public class Main {
                 }
                 case "12": {
 
-                    if (cantidad_Cheetos == 1){
+                    if (Constantes.cantidad_Cheetos == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -930,10 +881,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Cheetos += cantidadRellenar;
+                            Constantes.cantidad_Cheetos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Cheetos == 2) {
+                    } else if (Constantes.cantidad_Cheetos == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -942,10 +893,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Cheetos += cantidadRellenar;
+                            Constantes.cantidad_Cheetos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Cheetos == 3) {
+                    } else if (Constantes.cantidad_Cheetos == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -954,10 +905,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Cheetos += cantidadRellenar;
+                            Constantes.cantidad_Cheetos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Cheetos == 4) {
+                    } else if (Constantes.cantidad_Cheetos == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -966,10 +917,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Cheetos += cantidadRellenar;
+                            Constantes.cantidad_Cheetos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Cheetos == 5)  {
+                    } else if (Constantes.cantidad_Cheetos == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -977,7 +928,7 @@ public class Main {
                 }
                 case "13": {
 
-                    if (cantidad_Twix == 1){
+                    if (Constantes.cantidad_Twix == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -986,10 +937,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Twix += cantidadRellenar;
+                            Constantes.cantidad_Twix += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Twix == 2) {
+                    } else if (Constantes.cantidad_Twix == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -998,10 +949,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Twix += cantidadRellenar;
+                            Constantes.cantidad_Twix += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Twix == 3) {
+                    } else if (Constantes.cantidad_Twix == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1010,10 +961,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Twix += cantidadRellenar;
+                            Constantes.cantidad_Twix += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Twix == 4) {
+                    } else if (Constantes.cantidad_Twix == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1022,10 +973,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Twix += cantidadRellenar;
+                            Constantes.cantidad_Twix += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Twix == 5)  {
+                    } else if (Constantes.cantidad_Twix == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1033,7 +984,7 @@ public class Main {
                 }
                 case "20": {
 
-                    if (cantidad_Pringles == 1){
+                    if (Constantes.cantidad_Pringles == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1042,10 +993,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Pringles += cantidadRellenar;
+                            Constantes.cantidad_Pringles += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Pringles == 2) {
+                    } else if (Constantes.cantidad_Pringles == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1054,10 +1005,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Pringles += cantidadRellenar;
+                            Constantes.cantidad_Pringles += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Pringles == 3) {
+                    } else if (Constantes.cantidad_Pringles == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1066,10 +1017,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Pringles += cantidadRellenar;
+                            Constantes.cantidad_Pringles += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Pringles == 4) {
+                    } else if (Constantes.cantidad_Pringles == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1078,10 +1029,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Pringles += cantidadRellenar;
+                            Constantes.cantidad_Pringles += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Pringles == 5)  {
+                    } else if (Constantes.cantidad_Pringles == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1089,7 +1040,7 @@ public class Main {
                 }
                 case "21": {
 
-                    if (cantidad_MMs == 1){
+                    if (Constantes.cantidad_MMs == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1098,10 +1049,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_MMs += cantidadRellenar;
+                            Constantes.cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_MMs == 2) {
+                    } else if (Constantes.cantidad_MMs == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1110,10 +1061,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_MMs += cantidadRellenar;
+                            Constantes.cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_MMs == 3) {
+                    } else if (Constantes.cantidad_MMs == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1122,10 +1073,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_MMs += cantidadRellenar;
+                            Constantes.cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_MMs == 4) {
+                    } else if (Constantes.cantidad_MMs == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1134,10 +1085,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_MMs += cantidadRellenar;
+                            Constantes.cantidad_MMs += cantidadRellenar;
                         }
 
-                    } else if (cantidad_MMs == 5)  {
+                    } else if (Constantes.cantidad_MMs == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1145,7 +1096,7 @@ public class Main {
                 }
                 case "22": {
 
-                    if (cantidad_Papa_Delta == 1){
+                    if (Constantes.cantidad_Papa_Delta == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1154,10 +1105,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Papa_Delta += cantidadRellenar;
+                            Constantes.cantidad_Papa_Delta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Papa_Delta == 2) {
+                    } else if (Constantes.cantidad_Papa_Delta == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1166,10 +1117,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Papa_Delta += cantidadRellenar;
+                            Constantes.cantidad_Papa_Delta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Papa_Delta == 3) {
+                    } else if (Constantes.cantidad_Papa_Delta == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1178,10 +1129,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Papa_Delta += cantidadRellenar;
+                            Constantes.cantidad_Papa_Delta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Papa_Delta == 4) {
+                    } else if (Constantes.cantidad_Papa_Delta == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1190,10 +1141,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Papa_Delta += cantidadRellenar;
+                            Constantes.cantidad_Papa_Delta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Papa_Delta == 5)  {
+                    } else if (Constantes.cantidad_Papa_Delta == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1201,7 +1152,7 @@ public class Main {
                 }
                 case "23": {
 
-                    if (cantidad_Chicles_Menta == 1){
+                    if (Constantes.cantidad_Chicles_Menta == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1210,10 +1161,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Chicles_Menta += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Menta == 2) {
+                    } else if (Constantes.cantidad_Chicles_Menta == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1222,10 +1173,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Chicles_Menta += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Menta == 3) {
+                    } else if (Constantes.cantidad_Chicles_Menta == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1234,10 +1185,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Chicles_Menta += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Menta == 4) {
+                    } else if (Constantes.cantidad_Chicles_Menta == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1246,10 +1197,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Chicles_Menta += cantidadRellenar;
+                            Constantes.cantidad_Chicles_Menta += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Chicles_Menta == 5)  {
+                    } else if (Constantes.cantidad_Chicles_Menta == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1257,7 +1208,7 @@ public class Main {
                 }
                 case "30": {
 
-                    if (cantidad_Monster == 1){
+                    if (Constantes.cantidad_Monster == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1266,10 +1217,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Monster += cantidadRellenar;
+                            Constantes.cantidad_Monster += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Monster == 2) {
+                    } else if (Constantes.cantidad_Monster == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1278,10 +1229,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Monster += cantidadRellenar;
+                            Constantes.cantidad_Monster += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Monster == 3) {
+                    } else if (Constantes.cantidad_Monster == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1290,10 +1241,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Monster += cantidadRellenar;
+                            Constantes.cantidad_Monster += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Monster == 4) {
+                    } else if (Constantes.cantidad_Monster == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1302,10 +1253,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Monster += cantidadRellenar;
+                            Constantes.cantidad_Monster += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Monster == 5)  {
+                    } else if (Constantes.cantidad_Monster == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1313,7 +1264,7 @@ public class Main {
                 }
                 case "31": {
 
-                    if (cantidad_Crunch == 1){
+                    if (Constantes.cantidad_Crunch == 1){
 
                         while (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1322,10 +1273,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 4) {
-                            cantidad_Crunch += cantidadRellenar;
+                            Constantes.cantidad_Crunch += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Crunch == 2) {
+                    } else if (Constantes.cantidad_Crunch == 2) {
 
                         while (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1334,10 +1285,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 3) {
-                            cantidad_Crunch += cantidadRellenar;
+                            Constantes.cantidad_Crunch += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Crunch == 3) {
+                    } else if (Constantes.cantidad_Crunch == 3) {
 
                         while (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1346,10 +1297,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 2) {
-                            cantidad_Crunch += cantidadRellenar;
+                            Constantes.cantidad_Crunch += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Crunch == 4) {
+                    } else if (Constantes.cantidad_Crunch == 4) {
 
                         while (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
@@ -1358,10 +1309,10 @@ public class Main {
                         }
 
                         if (cantidadRellenar == 1) {
-                            cantidad_Crunch += cantidadRellenar;
+                            Constantes.cantidad_Crunch += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Crunch == 5)  {
+                    } else if (Constantes.cantidad_Crunch == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1369,39 +1320,39 @@ public class Main {
                 }
                 case "32": {
 
-                    if (cantidad_Milkybar == 1){
+                    if (Constantes.cantidad_Milkybar == 1){
 
                         if (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Milkybar += cantidadRellenar;
+                            Constantes.cantidad_Milkybar += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Milkybar == 2) {
+                    } else if (Constantes.cantidad_Milkybar == 2) {
 
                         if (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Milkybar += cantidadRellenar;
+                            Constantes.cantidad_Milkybar += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Milkybar == 3) {
+                    } else if (Constantes.cantidad_Milkybar == 3) {
 
                         if (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Milkybar += cantidadRellenar;
+                            Constantes.cantidad_Milkybar += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Milkybar == 4) {
+                    } else if (Constantes.cantidad_Milkybar == 4) {
 
                         if (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Milkybar += cantidadRellenar;
+                            Constantes.cantidad_Milkybar += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Milkybar == 5)  {
+                    } else if (Constantes.cantidad_Milkybar == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1409,39 +1360,39 @@ public class Main {
                 }
                 case "33": {
 
-                    if (cantidad_Fritos == 1){
+                    if (Constantes.cantidad_Fritos == 1){
 
                         if (cantidadRellenar > 4) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Fritos += cantidadRellenar;
+                            Constantes.cantidad_Fritos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Fritos == 2) {
+                    } else if (Constantes.cantidad_Fritos == 2) {
 
                         if (cantidadRellenar > 3) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Fritos += cantidadRellenar;
+                            Constantes.cantidad_Fritos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Fritos == 3) {
+                    } else if (Constantes.cantidad_Fritos == 3) {
 
                         if (cantidadRellenar > 2) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Fritos += cantidadRellenar;
+                            Constantes.cantidad_Fritos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Fritos == 4) {
+                    } else if (Constantes.cantidad_Fritos == 4) {
 
                         if (cantidadRellenar > 1) {
                             System.out.println("\nTe has pasado, introduce una cantidad correcta!!");
                         } else {
-                            cantidad_Fritos += cantidadRellenar;
+                            Constantes.cantidad_Fritos += cantidadRellenar;
                         }
 
-                    } else if (cantidad_Fritos == 5)  {
+                    } else if (Constantes.cantidad_Fritos == 5)  {
                         System.out.println("\nNo puedes rellenar más, la cantidad está completa!!");
                     }
 
@@ -1467,27 +1418,27 @@ public class Main {
 
         if (eleccionGanancias == 0){
 
-            System.out.println("Producto [00]: " + nombresGolosinas[0][0] + " -> " + (precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + "€");
-            System.out.println("Producto [01]: " + nombresGolosinas[0][1] + " -> " + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + "€");
-            System.out.println("Producto [02]: " + nombresGolosinas[0][2] + " -> " + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + "€");
-            System.out.println("Producto [03]: " + nombresGolosinas[0][3] + " -> " + (precioGolosinas[0][3] * cantidadComprada_Palotes) + "€");
-            System.out.println("Producto [10]: " + nombresGolosinas[1][0] + " -> " + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + "€");
-            System.out.println("Producto [11]: " + nombresGolosinas[1][1] + " -> " + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + "€");
-            System.out.println("Producto [12]: " + nombresGolosinas[1][2] + " -> " + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + "€");
-            System.out.println("Producto [13]: " + nombresGolosinas[1][3] + " -> " + (precioGolosinas[1][3] * cantidadComprada_Twix) + "€");
-            System.out.println("Producto [20]: " + nombresGolosinas[2][0] + " -> " + (precioGolosinas[2][0] * cantidadComprada_Pringles) + "€");
-            System.out.println("Producto [21]: " + nombresGolosinas[2][1] + " -> " + (precioGolosinas[2][1] * cantidad_MMs) + "€");
-            System.out.println("Producto [22]: " + nombresGolosinas[2][2] + " -> " + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + "€");
-            System.out.println("Producto [23]: " + nombresGolosinas[2][3] + " -> " + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + "€");
-            System.out.println("Producto [30]: " + nombresGolosinas[3][0] + " -> " + (precioGolosinas[3][0] * cantidadComprada_Monster) + "€");
-            System.out.println("Producto [31]: " + nombresGolosinas[3][1] + " -> " + (precioGolosinas[3][1] * cantidadComprada_Crunch) + "€");
-            System.out.println("Producto [32]: " + nombresGolosinas[3][2] + " -> " + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + "€");
-            System.out.println("Producto [33]: " + nombresGolosinas[3][3] + " -> " + (precioGolosinas[3][3] * cantidadComprada_Fritos) + "€");
+            System.out.println("Producto [00]: " + Constantes.nombresGolosinas[0][0] + " -> " + (Constantes.precioGolosinas[0][0] * Constantes.cantidadComprada_Kit_Kat) + "€");
+            System.out.println("Producto [01]: " + Constantes.nombresGolosinas[0][1] + " -> " + (Constantes.precioGolosinas[0][1] * Constantes.cantidadComprada_Chicles_Fresa) + "€");
+            System.out.println("Producto [02]: " + Constantes.nombresGolosinas[0][2] + " -> " + (Constantes.precioGolosinas[0][2] * Constantes.cantidadComprada_Lacasitos) + "€");
+            System.out.println("Producto [03]: " + Constantes.nombresGolosinas[0][3] + " -> " + (Constantes.precioGolosinas[0][3] * Constantes.cantidadComprada_Palotes) + "€");
+            System.out.println("Producto [10]: " + Constantes.nombresGolosinas[1][0] + " -> " + (Constantes.precioGolosinas[1][0] * Constantes.cantidadComprada_Kinder_Bueno) + "€");
+            System.out.println("Producto [11]: " + Constantes.nombresGolosinas[1][1] + " -> " + (Constantes.precioGolosinas[1][1] * Constantes.cantidadComprada_Bolsa_Variada_Haribo) + "€");
+            System.out.println("Producto [12]: " + Constantes.nombresGolosinas[1][2] + " -> " + (Constantes.precioGolosinas[1][2] * Constantes.cantidadComprada_Cheetos) + "€");
+            System.out.println("Producto [13]: " + Constantes.nombresGolosinas[1][3] + " -> " + (Constantes.precioGolosinas[1][3] * Constantes.cantidadComprada_Twix) + "€");
+            System.out.println("Producto [20]: " + Constantes.nombresGolosinas[2][0] + " -> " + (Constantes.precioGolosinas[2][0] * Constantes.cantidadComprada_Pringles) + "€");
+            System.out.println("Producto [21]: " + Constantes.nombresGolosinas[2][1] + " -> " + (Constantes.precioGolosinas[2][1] * Constantes.cantidad_MMs) + "€");
+            System.out.println("Producto [22]: " + Constantes.nombresGolosinas[2][2] + " -> " + (Constantes.precioGolosinas[2][2] * Constantes.cantidadComprada_Papa_Delta) + "€");
+            System.out.println("Producto [23]: " + Constantes.nombresGolosinas[2][3] + " -> " + (Constantes.precioGolosinas[2][3] * Constantes.cantidadComprada_Chicles_Menta) + "€");
+            System.out.println("Producto [30]: " + Constantes.nombresGolosinas[3][0] + " -> " + (Constantes.precioGolosinas[3][0] * Constantes.cantidadComprada_Monster) + "€");
+            System.out.println("Producto [31]: " + Constantes.nombresGolosinas[3][1] + " -> " + (Constantes.precioGolosinas[3][1] * Constantes.cantidadComprada_Crunch) + "€");
+            System.out.println("Producto [32]: " + Constantes.nombresGolosinas[3][2] + " -> " + (Constantes.precioGolosinas[3][2] * Constantes.cantidadComprada_Milkybar) + "€");
+            System.out.println("Producto [33]: " + Constantes.nombresGolosinas[3][3] + " -> " + (Constantes.precioGolosinas[3][3] * Constantes.cantidadComprada_Fritos) + "€");
 
         } else if (eleccionGanancias == 1){
 
             System.out.println("**Ganancias totales**");
-            System.out.println((double) Math.round(((precioGolosinas[0][0] * cantidadComprada_Kit_Kat) + (precioGolosinas[0][1] * cantidadComprada_Chicles_Fresa) + (precioGolosinas[0][2] * cantidadComprada_Lacasitos) + (precioGolosinas[0][3] * cantidadComprada_Palotes) + (precioGolosinas[1][0] * cantidadComprada_Kinder_Bueno) + (precioGolosinas[1][1] * cantidadComprada_Bolsa_Variada_Haribo) + (precioGolosinas[1][2] * cantidadComprada_Cheetos) + (precioGolosinas[1][3] * cantidadComprada_Twix) + (precioGolosinas[2][0] * cantidadComprada_Pringles) + (precioGolosinas[2][1] * cantidadComprada_MMs) + (precioGolosinas[2][2] * cantidadComprada_Papa_Delta) + (precioGolosinas[2][3] * cantidadComprada_Chicles_Menta) + (precioGolosinas[3][0] * cantidadComprada_Monster) + (precioGolosinas[3][1] * cantidadComprada_Crunch) + (precioGolosinas[3][2] * cantidadComprada_Milkybar) + (precioGolosinas[3][3] * cantidadComprada_Fritos))  * 100) / 100 + "€");
+            System.out.println((double) Math.round(((Constantes.precioGolosinas[0][0] * Constantes.cantidadComprada_Kit_Kat) + (Constantes.precioGolosinas[0][1] * Constantes.cantidadComprada_Chicles_Fresa) + (Constantes.precioGolosinas[0][2] * Constantes.cantidadComprada_Lacasitos) + (Constantes.precioGolosinas[0][3] * Constantes.cantidadComprada_Palotes) + (Constantes.precioGolosinas[1][0] * Constantes.cantidadComprada_Kinder_Bueno) + (Constantes.precioGolosinas[1][1] * Constantes.cantidadComprada_Bolsa_Variada_Haribo) + (Constantes.precioGolosinas[1][2] * Constantes.cantidadComprada_Cheetos) + (Constantes.precioGolosinas[1][3] * Constantes.cantidadComprada_Twix) + (Constantes.precioGolosinas[2][0] * Constantes.cantidadComprada_Pringles) + (Constantes.precioGolosinas[2][1] * Constantes.cantidadComprada_MMs) + (Constantes.precioGolosinas[2][2] * Constantes.cantidadComprada_Papa_Delta) + (Constantes.precioGolosinas[2][3] * Constantes.cantidadComprada_Chicles_Menta) + (Constantes.precioGolosinas[3][0] * Constantes.cantidadComprada_Monster) + (Constantes.precioGolosinas[3][1] * Constantes.cantidadComprada_Crunch) + (Constantes.precioGolosinas[3][2] * Constantes.cantidadComprada_Milkybar) + (Constantes.precioGolosinas[3][3] * Constantes.cantidadComprada_Fritos))  * 100) / 100 + "€");
         }
 
         System.out.println("\n***Máquina apagada***");
