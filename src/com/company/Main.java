@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner in = new Scanner(System.in);
+    public static int eleccion;
 
     public static void main(String[] args) {
 
@@ -16,9 +17,9 @@ public class Main {
         while (!apagarMaquina) {
             mostrarMenu();
 
-            int eleccion = in.nextInt();
-
             try {
+                eleccion = in.nextInt();
+
                 switch (eleccion) {
                     case 1:
                         if (Constantes.cantidad_Kit_Kat == 1 || Constantes.cantidad_Chicles_Fresa == 1 || Constantes.cantidad_Lacasitos == 1 || Constantes.cantidad_Palotes == 1 || Constantes.cantidad_Kinder_Bueno == 1 || Constantes.cantidad_Bolsa_Variada_Haribo == 1 || Constantes.cantidad_Cheetos == 1 || Constantes.cantidad_Twix == 1 || Constantes.cantidad_Pringles == 1 || Constantes.cantidad_MMs == 1 || Constantes.cantidad_Papa_Delta == 1 || Constantes.cantidad_Chicles_Menta == 1 || Constantes.cantidad_Monster == 1 || Constantes.cantidad_Crunch == 1 || Constantes.cantidad_Milkybar == 1 || Constantes.cantidad_Fritos == 1) {
@@ -34,13 +35,13 @@ public class Main {
                         rellenarMaquina();
                         break;
                     case 4:
-                        apagarMaquina();
                         apagarMaquina = true;
+                        apagarMaquina();
                         break;
                 }
             } catch (InputMismatchException exception) {
-                System.out.println("Carácter incorrecto, debes introducir un número!!");
-                in.nextInt();
+                System.out.println("\nCarácter incorrecto, debes introducir un número!!\n");
+                in.next();
             }
         }
     }
@@ -48,7 +49,6 @@ public class Main {
 
     public static void mostrarMenu(){
         System.out.println("Bienvenido a la máquina expendedora, que deseas hacer??\n");
-
         System.out.println("Tecla 1: Comprar chucherias de la máquina.");
         System.out.println("Tecla 2: Ver las chucherias disponibles en la máquina.");
         System.out.println("Tecla 3: Rellenar la cantidad de las chucherias de la máquina.");
