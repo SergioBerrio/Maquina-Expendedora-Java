@@ -1,4 +1,4 @@
-# MaquinaExpendoraJava
+# Maquina-Expendora-Java
 Aplicación de máquina expendedora programada en Java
 
 # Estructura de la aplicación
