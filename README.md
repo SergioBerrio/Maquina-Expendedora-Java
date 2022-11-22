@@ -1,4 +1,4 @@
-# Maquina-Expendora-Java
+# Máquina expendora de chucherías en Java
 
 ## Estructura de la aplicación
 
